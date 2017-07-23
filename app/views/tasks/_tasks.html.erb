@@ -4,7 +4,7 @@
     <li class="media">
       <div class="media-body">
         <div>
-          <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= task.created_at %></span>
+          <%= user.name %> <span class="text-muted">posted at <%= task.created_at %></span>
         </div>
         <div>
           <p><%= task.content %></p>
@@ -13,6 +13,7 @@
           <p><%= task.status %></p>
         </div>
         <div>
+          <%= link_to "詳細", task, class: 'btn btn-default btn-xs' %>
           <% if current_user == task.user %>
             <%= link_to "Delete", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
           <% end %>
